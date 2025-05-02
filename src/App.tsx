@@ -1,13 +1,12 @@
+import { Button } from './components/ui/button';
+
 function App() {
   return (
-    <div className='bg-background font-greta flex h-screen flex-col items-center justify-center text-white'>
+    <div className='bg-background font-greta text-foreground flex h-screen flex-col items-center justify-center'>
       <h1 className='mb-4 text-4xl font-light'>تبويب الاقتباسات</h1>
-      <h2 className='text-xl'>
-        You can find API{' '}
-        <a href='/api' className='font-bold text-blue-500 underline'>
-          here
-        </a>
-      </h2>
+      <a href='/api'>
+        <Button className='cursor-pointer'>API Here</Button>
+      </a>
     </div>
   );
 }
