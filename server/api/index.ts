@@ -9,7 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/api', (req: Request, res: Response) => {
-  res.send('Hello from the application API!');
+  res.json({
+    message: 'Hello from the application API!',
+  });
 });
 
 app.listen(3000, () => {
