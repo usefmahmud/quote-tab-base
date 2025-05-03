@@ -8,17 +8,18 @@ import {
   SidebarContent,
   Sidebar,
 } from '@/components/ui/sidebar';
+import { Link } from '@tanstack/react-router';
 import { PlusIcon, QuoteIcon, ListIcon } from 'lucide-react';
 
 const AppSidebar = () => {
   return (
     <Sidebar side='right' className='bg-background text-foreground'>
       <SidebarHeader className='text-center'>
-        <a href='/'>
+        <Link to='/'>
           <h1 className='py-3 text-2xl font-bold select-none'>
             تبويب الاقتباسات
           </h1>
-        </a>
+        </Link>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -26,28 +27,28 @@ const AppSidebar = () => {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild className='py-6'>
-                  <a href='/add-quote' className='text-xl font-light'>
+                  <Link to='/add-quote'>
                     <PlusIcon className='mr-2 h-4 w-4' />
                     إضافة اقتباس
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
 
               <SidebarMenuItem>
                 <SidebarMenuButton asChild className='py-6'>
-                  <a href='/quotes' className='text-xl font-light'>
+                  <Link to='/quotes'>
                     <QuoteIcon className='mr-2 h-4 w-4' />
                     الاقتباسات
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
 
               <SidebarMenuItem>
                 <SidebarMenuButton asChild className='py-6'>
-                  <a href='/categories' className='text-xl font-light'>
+                  <Link to='/categories'>
                     <ListIcon className='mr-2 h-4 w-4' />
                     التصنيفات
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
