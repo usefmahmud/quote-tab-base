@@ -1,13 +1,12 @@
-import { Button } from './components/ui/button';
+import Layout from './components/layout';
 
 function App() {
   return (
-    <div className='bg-background font-greta text-foreground flex h-screen flex-col items-center justify-center'>
-      <h1 className='mb-4 text-4xl font-light'>تبويب الاقتباسات</h1>
-      <a href='/api'>
-        <Button className='cursor-pointer'>API Here</Button>
-      </a>
-    </div>
+    <Layout>
+      <div className='flex h-full items-center justify-center text-3xl font-bold'>
+        الصفحة الرئيسية
+      </div>
+    </Layout>
   );
 }
 
