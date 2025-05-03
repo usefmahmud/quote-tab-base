@@ -7,6 +7,7 @@ This repo is the backbone of quote-tab built in collaboration with an anonymous 
 - Vite
 - React with Typescript
 - TailwindCSS
+- TanStack Router
 
 ### server side:
 - Express with Typescript
