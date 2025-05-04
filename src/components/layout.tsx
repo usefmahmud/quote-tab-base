@@ -5,7 +5,7 @@ import { Outlet } from '@tanstack/react-router';
 const Layout = () => {
   return (
     <SidebarProvider className='bg-background text-foreground'>
-      <SidebarTrigger />
+      <SidebarTrigger className='absolute start-4 top-4' />
       <AppSidebar />
       <main className='bg-background text-foreground w-full'>
         <Outlet />
