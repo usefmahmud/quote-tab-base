@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, RequestHandler } from 'express';
 import {
   createQuote,
   deleteQuote,
@@ -9,10 +9,10 @@ import {
 
 const router = Router();
 
-router.get('/', getAllQuotes);
-router.get('/:id', getQuoteById);
-router.post('/', createQuote);
-router.delete('/:id', deleteQuote);
-router.get('/random', getRandomQuote);
+router.get('/', getAllQuotes as RequestHandler);
+router.get('/:id', getQuoteById as RequestHandler);
+router.post('/', createQuote as RequestHandler);
+router.delete('/:id', deleteQuote as RequestHandler);
+router.get('/random', getRandomQuote as RequestHandler);
 
 export default router;
