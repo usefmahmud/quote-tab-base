@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import router from './routers/index.route';
 dotenv.config();
 
 const app = express();
@@ -8,12 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/api', (req: Request, res: Response) => {
-  res.json({
-    message: 'Hello from the application API!',
-  });
-});
+app.use('/api', router);
 
-app.listen(3000, () => {
-  console.log(`Server is running on port 3000`);
+const PORT = process.env.PORT || 3030;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
