@@ -12,32 +12,6 @@ const app = express();
 
 connectDB();
 
-// Swagger configuration
-const swaggerOptions = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'Quote API',
-      version: '1.0.0',
-      description: 'API for managing quotes',
-    },
-    servers: [
-      {
-        url: 'http://localhost:3031',
-        description: 'Development server',
-      },
-      {
-        url: 'https://quote-tab-base.vercel.app',
-        description: 'Production server',
-      },
-    ],
-  },
-  apis: ['./api/controllers/*.ts', './api/models/*.ts', './api/routers/*.ts'],
-};
-
-const swaggerDocs = swaggerJSDoc(swaggerOptions);
-app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
 app.use(cors());
 app.use(express.json());
 
@@ -49,7 +23,4 @@ const PORT = process.env.PORT || 3031;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  console.log(
-    `Swagger documentation available at http://localhost:${PORT}/api-docs`
-  );
 });
