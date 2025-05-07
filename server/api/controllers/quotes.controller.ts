@@ -1,14 +1,29 @@
-import { Request, Response } from 'express';
-import Quote from '../models/quote.model';
+import Quote, { IQuote } from '../models/quote.model';
 import { ICreateQuoteDto } from '../dto/quotes.dto';
 import Category from '../models/category.model';
+import { Controller, Get, Path, Response, Route } from 'tsoa';
 
-export const getAllQuotes = async (req: Request, res: Response) => {
-  const quotes = await Quote.find();
+@Route('quotes')
+export class QuotesController extends Controller {
+  @Get()
+  public async getAllQuotes(): Promise<IQuote[]> {
+    const quotes = await Quote.find();
+    return quotes;
+  }
 
-  res.success(quotes, 'Quotes fetched successfully');
-};
+  @Response<IQuote>(404, 'Quote not found')
+  @Get('{id}')
+  public async getQuoteById(@Path() id: string): Promise<IQuote> {
+    const quote = await Quote.findById(id);
+    if (!quote) {
+      this.setStatus(404);
+      throw new Error('Quote not found');
+    }
+    return quote;
+  }
+}
 
+/*
 export const getQuoteById = async (req: Request, res: Response) => {
   const { id } = req.params;
 
@@ -64,3 +79,4 @@ export const getRandomQuote = (req: Request, res: Response) => {
     message: 'random quote',
   });
 };
+*/
